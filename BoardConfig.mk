@@ -111,6 +111,15 @@ TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
+RECOVERY_TOUCHSCREEN_SWAP_XY := false
+RECOVERY_TOUCHSCREEN_FLIP_X := false
+RECOVERY_TOUCHSCREEN_FLIP_Y := false
+TW_TOUCH_EVENTS_PATH := "/dev/input/event3"
+TW_NO_LEGACY_PROPS := true
+TW_INCLUDE_RESETPROP := true
+TW_LOAD_VENDOR_MODULES := "fts_touch_spi.ko synaptics_tcm_core.ko synaptics_tcm_touch.ko"
+TW_CUSTOM_BATTERY_PATH := "/sys/class/power_supply/battery"
+BOARD_HAS_NO_SELECT_BUTTON := true
 TW_USE_TOOLBOX := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_MAX_BRIGHTNESS := 255
@@ -126,6 +135,10 @@ TW_INCLUDE_FUSE_NTFS := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_NO_SCREEN_BLANK := true
 TW_EXCLUDE_APEX := true
+TW_OVERRIDE_SYSTEM_PROPS := \
+    "ro.build.date.utc;ro.bootimage.build.date.utc=ro.build.date.utc;ro.odm.build.date.utc=ro.build.date.utc;ro.product.build.date.utc=ro.build.date.utc;ro.system.build.date.utc=ro.build.date.utc;ro.system_ext.build.date.utc=ro.build.date.utc;ro.vendor.build.date.utc=ro.build.date.utc;ro.build.version.incremental;ro.bootimage.build.version.incremental=ro.build.version.incremental;ro.odm.build.version.incremental=ro.build.version.incremental;ro.product.build.version.incremental=ro.build.version.incremental;ro.system.build.version.incremental=ro.build.version.incremental;ro.system_ext.build.version.incremental=ro.build.version.incremental;ro.vendor.build.version.incremental=ro.build.version.incremental"
+TARGET_RECOVERY_DEVICE_MODULES += libion libxml2 vendor.display.config@1.0 vendor.display.config@2.0 libdisplayconfig.qti
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libion.so $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/libdisplayconfig.qti.so
 
 # OrangeFox Configuration
 OF_SCREEN_H := 1920
